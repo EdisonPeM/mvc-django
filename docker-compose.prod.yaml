@@ -11,10 +11,6 @@ services:
       MYSQL_DATABASE: ${MYSQL_DATABASE}
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
-    ports:
-      - "3306:3306"
-    env_file:
-      - .env.dev
     healthcheck:
       test: ["CMD", "mysql", "-h", "localhost", "-u", "root", "-p${MYSQL_ROOT_PASSWORD}", "-e", "SELECT 1"]
       timeout: 20s
@@ -25,12 +21,8 @@ services:
     image: biblioteca_app
     container_name: server
     restart: always
-    volumes:
-      - .:/code
     ports:
-      - "8000:8000"
-    env_file:
-      - .env.dev
+      - "${PORT}:8000"
     depends_on:
       db:
         condition: service_healthy

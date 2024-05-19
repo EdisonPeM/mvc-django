@@ -1,0 +1,36 @@
+version: '3'
+services:
+  db:
+    image: mysql:5.7
+    container_name: biblioteca_db
+    restart: always
+    volumes:
+      - data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+    ports:
+      - "3306:3306"
+    healthcheck:
+      test: ["CMD", "mysql", "-h", "localhost", "-u", "root", "-p${MYSQL_ROOT_PASSWORD}", "-e", "SELECT 1"]
+      timeout: 20s
+      retries: 10
+  
+  backend:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: biblioteca_app
+    restart: always
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env.public
+    depends_on:
+      - db:
+          condition: service_healthy
+
+volumes:
+  data:

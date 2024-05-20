@@ -31,6 +31,7 @@ ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', '').split(' ')
 # Application definition
 
 INSTALLED_APPS = [
+    "biblioteca.apps.BibliotecaConfig",
     'django.contrib.staticfiles',
 ]
 

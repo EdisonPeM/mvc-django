@@ -1,0 +1,17 @@
+{% extends "layout.html" %} 
+
+
+{% block content %}
+<h1>Autores Page</h1>
+
+<ul>
+  {% for autor in autores %}
+  <li>
+    <strong>{{ autor.codigo_autor }}</strong>
+    <a href="{% url 'detalleAutor' autor.codigo_autor %}">
+      {{ autor.nombre_autor }} ({{ autor.nacionalidad }})
+    </a>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}

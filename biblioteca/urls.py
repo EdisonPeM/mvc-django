@@ -1,8 +1,12 @@
-from django.urls import path
+from django.urls import path, include
 
-from .controllers import AutoresController
+from .controllers import autoresController
+
+autoresPatterns = [
+    path('', autoresController.listar, name="listarAutores"),
+    path('/<str:codigo_autor>', autoresController.obtener, name="detalleAutor")
+]
 
 urlpatterns = [
-    path("", AutoresController.index, name="index"),
-    path("<int:some_id>", AutoresController.detail, name="detail"),
+    path('autores', include(autoresPatterns)),    
 ]

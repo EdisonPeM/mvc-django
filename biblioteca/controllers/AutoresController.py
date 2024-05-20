@@ -1,22 +1,28 @@
+from django.http import Http404
 from django.shortcuts import render
-from django.http import HttpResponse
 
-# Create your views here.
-def index(request):
-  return HttpResponse("Hello, world. You're in the Biblioteca index.")
+# Import Models
+from ..models.autores import Autores
 
-def detail(request, some_id):
-  context = { 'some_id': some_id }
-  return render(request, "index.html", context)
+def listar(request):
+  return render(request, "autores/list.html", { 'autores': Autores.listarAutores() })
+
+def obtener(request, codigo_autor):
+  try:
+    autor = Autores.obtenerAutor(codigo_autor)
+    return render(request, "autores/detail.html", { "autor": autor })
   
-# def insertar():
-#   insertar(request, response); break; 
+  except Autores.DoesNotExist:
+    raise Http404("Autor does not exist")
 
-# def obtener():
-#   obtener(request, response); break; 
+# def nuevo(request):
+#   request.getRequestDispatcher("/autores/nuevoAutor.jsp").forward(request, response); 
 
-# def modificar():
-#   modificar(request, response); break; 
+# def insertar(request):
+#   insertar(request, response); 
 
-# def eliminar():
-#   eliminar(request, response); break; 
+# def modificar(request):
+#   modificar(request, response); 
+
+# def eliminar(request):
+#   eliminar(request, response);

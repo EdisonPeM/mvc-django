@@ -6,7 +6,7 @@ class Autores(models.Model):
   nacionalidad = models.CharField(max_length=50)
   
   def listarAutores():
-    pass
+    return Autores.objects.all()
   
   def insertarAutor(autor):
     pass
@@ -18,7 +18,7 @@ class Autores(models.Model):
     pass
   
   def obtenerAutor(codigo):
-    pass
+    return Autores.objects.get(codigo_autor=codigo)
 
   def totalAutores():
-    pass
+    return len(Autores.objects.all())

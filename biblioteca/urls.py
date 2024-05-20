@@ -1,7 +1,8 @@
 from django.urls import path
 
-from . import views
+from .controllers import AutoresController
 
 urlpatterns = [
-    path("", views.index, name="index"),
+    path("", AutoresController.index, name="index"),
+    path("<int:some_id>", AutoresController.detail, name="detail"),
 ]

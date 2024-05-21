@@ -10,16 +10,13 @@ def listar(request):
 
 def obtener(request, codigo_autor):
   autor = AutoresModel.obtenerAutor(codigo_autor)
-  if autor:  
+  if autor:
     return render(request, "autores/detail.html", { "autor": autor })
   else:
     raise Http404("Autor does not exist")
 
-# def nuevo(request):
-#   request.getRequestDispatcher("/autores/nuevoAutor.jsp").forward(request, response); 
-
-# def insertar(request):
-#   insertar(request, response); 
+def agregar(request):
+  return render(request, "autores/nuevo.html")
 
 # def modificar(request):
 #   modificar(request, response); 

@@ -1,8 +1,11 @@
-{% extends "layout.html" %} 
-
+{% extends "layout.html" %}
 
 {% block content %}
 <h1>Autores Page</h1>
+
+<a href="{% url 'agregarAutor' %}" class="btn btn-link">Agregar Autor</a>
+
+<hr/> 
 
 <ul>
   {% for autor in autores %}

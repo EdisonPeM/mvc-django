@@ -2,17 +2,17 @@ from django.http import Http404
 from django.shortcuts import render
 
 # Import Models
-from ..models.autores import Autores
+from ..models.autores import AutoresModel
 
 def listar(request):
-  return render(request, "autores/list.html", { 'autores': Autores.listarAutores() })
+  autores = AutoresModel.listarAutores()
+  return render(request, "autores/list.html", { 'autores': autores })
 
 def obtener(request, codigo_autor):
-  try:
-    autor = Autores.obtenerAutor(codigo_autor)
+  autor = AutoresModel.obtenerAutor(codigo_autor)
+  if autor:  
     return render(request, "autores/detail.html", { "autor": autor })
-  
-  except Autores.DoesNotExist:
+  else:
     raise Http404("Autor does not exist")
 
 # def nuevo(request):

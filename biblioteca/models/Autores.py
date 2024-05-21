@@ -1,15 +1,22 @@
 from django.db import models
 
-class Autores(models.Model):
+class Autor(models.Model):
+  class Meta:
+    db_table = 'autores'
   codigo_autor = models.CharField(max_length=6, primary_key=True)
   nombre_autor = models.CharField(max_length=50)
   nacionalidad = models.CharField(max_length=50)
-  
+
+class AutoresModel():
   def listarAutores():
-    return Autores.objects.all()
+    return Autor.objects.all()
   
   def insertarAutor(autor):
-    pass
+    try:
+      autor.save(force_insert=True)
+      return True
+    except:
+      return False
   
   def eliminarAutor(codigo):
     pass
@@ -18,7 +25,10 @@ class Autores(models.Model):
     pass
   
   def obtenerAutor(codigo):
-    return Autores.objects.get(codigo_autor=codigo)
+    try:
+      return Autor.objects.get(codigo_autor=codigo)
+    except Autor.DoesNotExist:
+      return None
 
   def totalAutores():
-    return len(Autores.objects.all())
+    return len(Autor.objects.all())

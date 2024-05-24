@@ -22,7 +22,11 @@ class AutoresModel():
     pass
   
   def modificarAutor(autor):
-    pass
+    try:
+      autor.save(force_update=True)
+      return True
+    except:
+      return False
   
   def obtenerAutor(codigo):
     try:

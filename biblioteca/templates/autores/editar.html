@@ -1,0 +1,14 @@
+{% extends "layout.html" %} 
+
+{% block content %}
+<h1>Editar Autor {{ autor.codigo_autor }}</h1>
+<form class="mt-3" method="post" novalidate>
+  {% csrf_token %}
+  {{form}}
+  <div class="mt-3">
+    <button type="submit" class="btn btn-primary">Editar Autor</button>
+    <button type="reset" class="btn btn-secondary">Reniciar</button>
+    <a href="{% url 'listarAutores' %}" class="btn btn-danger">Cancelar</a>
+  </div>
+</form>
+{% endblock %}

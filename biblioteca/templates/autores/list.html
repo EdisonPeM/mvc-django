@@ -11,7 +11,7 @@
   {% for autor in autores %}
   <li>
     <strong>{{ autor.codigo_autor }}</strong>
-    <a href="{% url 'detalleAutor' autor.codigo_autor %}">
+    <a href="{% url 'editarAutor' autor.codigo_autor %}">
       {{ autor.nombre_autor }} ({{ autor.nacionalidad }})
     </a>
   </li>

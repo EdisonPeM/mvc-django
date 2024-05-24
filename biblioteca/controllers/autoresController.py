@@ -3,6 +3,7 @@ from django.shortcuts import render
 
 # Import Models
 from ..models.autores import AutoresModel
+from ..forms.autoresForm import AutoresForm
 
 def listar(request):
   autores = AutoresModel.listarAutores()
@@ -16,7 +17,8 @@ def obtener(request, codigo_autor):
     raise Http404("Autor does not exist")
 
 def agregar(request):
-  return render(request, "autores/nuevo.html")
+  form = AutoresForm()
+  return render(request, "autores/nuevo.html", { "form": form })
 
 # def modificar(request):
 #   modificar(request, response); 

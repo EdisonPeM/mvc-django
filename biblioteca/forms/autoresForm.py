@@ -1,6 +1,7 @@
 from django.core.validators import RegexValidator
 from django import forms
 
+from .baseForm import BaseModelForm
 from ..models.autores import Autor
 
 codigo_autor_validator = RegexValidator(
@@ -15,9 +16,7 @@ labels = {
   'nacionalidad': 'Nacionalidad'
 }
 
-class CrearAutoresForm(forms.ModelForm):
-  template_name = "bs-form.html" 
-  
+class CrearAutoresForm(BaseModelForm):
   codigo_autor = forms.CharField(
     label=labels["codigo_autor"],
     max_length=6,
@@ -31,9 +30,7 @@ class CrearAutoresForm(forms.ModelForm):
     labels = labels
 
     
-class EditarAutoresForm(forms.ModelForm):
-  template_name = "bs-form.html" 
-
+class EditarAutoresForm(BaseModelForm):
   class Meta():
     model = Autor
     fields = ["nombre_autor", "nacionalidad"]

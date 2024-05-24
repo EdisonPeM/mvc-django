@@ -1,8 +1,8 @@
 from django.http import Http404
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 # Import Models
-from ..models.autores import AutoresModel
+from ..models.autores import AutoresModel, Autor
 from ..forms.autoresForm import AutoresForm
 
 def listar(request):
@@ -18,6 +18,18 @@ def obtener(request, codigo_autor):
 
 def agregar(request):
   form = AutoresForm()
+  if request.method == 'POST':
+    form = AutoresForm(request.POST)
+    if form.is_valid():
+      autor = Autor(
+        codigo_autor=request.POST['codigo'],
+        nombre_autor=request.POST['nombre'],
+        nacionalidad=request.POST['nacionalidad']
+      )
+
+      AutoresModel.insertarAutor(autor)
+      return redirect('listarAutores')
+
   return render(request, "autores/nuevo.html", { "form": form })
 
 # def modificar(request):

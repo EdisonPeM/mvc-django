@@ -10,16 +10,19 @@ class Autor(models.Model):
 class AutoresModel():
   def listarAutores():
     return Autor.objects.all()
-  
+
+  def obtenerAutor(codigo):
+    try:
+      return Autor.objects.get(codigo_autor=codigo)
+    except Autor.DoesNotExist:
+      return None
+    
   def insertarAutor(autor):
     try:
       autor.save(force_insert=True)
       return True
     except:
       return False
-  
-  def eliminarAutor(codigo):
-    pass
   
   def modificarAutor(autor):
     try:
@@ -28,11 +31,9 @@ class AutoresModel():
     except:
       return False
   
-  def obtenerAutor(codigo):
+  def eliminarAutor(autor):
     try:
-      return Autor.objects.get(codigo_autor=codigo)
-    except Autor.DoesNotExist:
-      return None
-
-  def totalAutores():
-    return len(Autor.objects.all())
+      autor.delete()
+      return True
+    except:
+      return False

@@ -34,5 +34,11 @@ def editar(request, codigo_autor):
   else:
     raise Http404("Autor does not exist")
 
-# def eliminar(request):
-#   eliminar(request, response);
+def eliminar(request, codigo_autor):
+  if request.method == 'POST':
+    autor = AutoresModel.obtenerAutor(codigo_autor)
+    if autor:
+      AutoresModel.eliminarAutor(autor)
+
+  return redirect('listarAutores')
+

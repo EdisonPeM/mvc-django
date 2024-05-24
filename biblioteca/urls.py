@@ -6,7 +6,7 @@ autoresPatterns = [
     path('', autoresController.listar, name="listarAutores"),
     path('/nuevo', autoresController.agregar, name="agregarAutor"),
     path('/editar/<str:codigo_autor>', autoresController.editar, name="editarAutor"),
-    # path('/eliminar/<str:codigo_autor>', autoresController.obtener, name="eliminarAutor")
+    path('/eliminar/<str:codigo_autor>', autoresController.eliminar, name="eliminarAutor")
 ]
 
 urlpatterns = [

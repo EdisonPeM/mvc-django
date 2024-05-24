@@ -1,6 +1,6 @@
 from django.urls import path, include
 
-from .controllers import autoresController
+from .controllers import indexController, autoresController
 
 autoresPatterns = [
     path('', autoresController.listar, name="listarAutores"),
@@ -11,5 +11,6 @@ autoresPatterns = [
 ]
 
 urlpatterns = [
-    path('autores', include(autoresPatterns)),    
+    path('', indexController.home, name="home"),
+    path('autores', include(autoresPatterns)),
 ]

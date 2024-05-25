@@ -7,7 +7,7 @@ from ..forms.autoresForm import CrearAutoresForm, EditarAutoresForm
 
 def listar(request):
   autores = AutoresModel.listarAutores()
-  return render(request, "autores/list.html", { 'autores': autores })
+  return render(request, "autores/listar.html", { 'autores': autores })
 
 def agregar(request):
   form = CrearAutoresForm()
@@ -18,7 +18,7 @@ def agregar(request):
       AutoresModel.insertarAutor(autor)
       return redirect('listarAutores')
 
-  return render(request, "autores/nuevo.html", { "form": form })
+  return render(request, "autores/agregar.html", { "form": form })
 
 def editar(request, codigo_autor):
   autor = AutoresModel.obtenerAutor(codigo_autor)

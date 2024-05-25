@@ -1,0 +1,58 @@
+<div
+  class="modal fade"
+  id="aliminarAutorModal"
+  tabindex="-1"
+  aria-labelledby="aliminarAutorModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form id="modal-form-eliminar-autor" method="POST">
+        <div class="modal-header">
+          <h1 class="modal-title fs-4" id="aliminarAutorModalLabel">
+            Realmente desea eliminar el autor
+          </h1>
+
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          {% csrf_token %}
+          <div id="modal-autor-info"></div>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Cancelar
+          </button>
+          <button type="submit" class="btn btn-danger">Eliminar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% block scripts %}
+<script type="module">
+  const myModalEl = document.getElementById("aliminarAutorModal");
+  myModalEl.addEventListener("show.bs.modal", (event) => {
+    // Show Selected Autor Info
+    const data = event.relatedTarget.dataset;
+    const { codigoAutor, nombreAutor, nacionalidadAutor } = data;
+    const modalBody = document.getElementById("modal-autor-info");
+    modalBody.innerHTML = `<p class="m-3"><strong>${codigoAutor}</strong> ${nombreAutor} (${nacionalidadAutor})</p>`;
+
+    // Set form action value
+    const actionTemplate = "{% url 'eliminarAutor' ':codigo' %}";
+    const form = document.getElementById("modal-form-eliminar-autor");
+    form.action = actionTemplate.replace(":codigo", codigoAutor);
+  });
+</script>
+{% endblock %}

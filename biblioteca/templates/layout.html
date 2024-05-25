@@ -16,21 +16,19 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     />
 
-    <script>
+    <script type="module">
       /* Set bootstrap theme */
-      (() => {
-        const matchMedia = window.matchMedia("(prefers-color-scheme: dark)");
-        const getPreferredTheme = () => (matchMedia.matches ? "dark" : "light");
-        const setTheme = () => {
-          document.documentElement.setAttribute(
-            "data-bs-theme",
-            getPreferredTheme()
-          );
-        };
+      const matchMedia = window.matchMedia("(prefers-color-scheme: dark)");
+      const getPreferredTheme = () => (matchMedia.matches ? "dark" : "light");
+      const setTheme = () => {
+        document.documentElement.setAttribute(
+          "data-bs-theme",
+          getPreferredTheme()
+        );
+      };
 
-        setTheme();
-        matchMedia.addEventListener("change", setTheme);
-      })();
+      setTheme();
+      matchMedia.addEventListener("change", setTheme);
     </script>
 
     {% load static %}

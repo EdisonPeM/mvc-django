@@ -9,7 +9,10 @@ class Autor(models.Model):
 
 class AutoresModel():
   def listarAutores():
-    return Autor.objects.all()
+    try:
+      return Autor.objects.all()
+    except:
+      return []
 
   def obtenerAutor(codigo):
     try:

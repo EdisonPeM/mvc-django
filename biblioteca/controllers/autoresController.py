@@ -2,12 +2,13 @@ from django.http import Http404
 from django.shortcuts import render, redirect
 
 # Import Models
-from ..models.autores import AutoresModel, Autor
+from ..models.autores import AutoresModel
 from ..forms.autoresForm import CrearAutoresForm, EditarAutoresForm
 
 def listar(request):
   autores = AutoresModel.listarAutores()
-  return render(request, "autores/listar.html", { 'autores': autores })
+  alert = request.session.pop('alert', None)
+  return render(request, "autores/listar.html", { 'autores': autores, 'alert': alert })
 
 def agregar(request):
   form = CrearAutoresForm()
@@ -15,7 +16,10 @@ def agregar(request):
     form = CrearAutoresForm(request.POST)
     if form.is_valid():
       autor = form.save(commit=False)
-      AutoresModel.insertarAutor(autor)
+      if AutoresModel.insertarAutor(autor):
+        request.session['alert'] = { 'type': 'success', 'message': 'El autor ha sido agregado exitosamente' }
+      else:
+        request.session['alert'] = { 'type': 'error', 'message': 'Ha ocurrido un problema al agregar el autor' }
       return redirect('listarAutores')
 
   return render(request, "autores/agregar.html", { "form": form })
@@ -27,7 +31,10 @@ def editar(request, codigo_autor):
     if request.method == 'POST':
       form = EditarAutoresForm(request.POST, instance=autor)
       if form.is_valid():
-        AutoresModel.modificarAutor(autor)
+        if AutoresModel.modificarAutor(autor):
+          request.session['alert'] = { 'type': 'success', 'message': 'El autor ha sido actualizado exitosamente' }
+        else:
+          request.session['alert'] = { 'type': 'error', 'message': 'Ha ocurrido un problema al actualizar el autor' }
         return redirect('listarAutores')
 
     return render(request, "autores/editar.html", { "autor": autor, "form": form })
@@ -38,7 +45,10 @@ def eliminar(request, codigo_autor):
   if request.method == 'POST':
     autor = AutoresModel.obtenerAutor(codigo_autor)
     if autor:
-      AutoresModel.eliminarAutor(autor)
+      if AutoresModel.eliminarAutor(autor):
+        request.session['alert'] = { 'type': 'success', 'message': 'El autor ha sido eliminado exitosamente' }
+      else:
+        request.session['alert'] = { 'type': 'error', 'message': 'Ha ocurrido un problema al eliminar el autor' }
 
   return redirect('listarAutores')
 

@@ -6,9 +6,15 @@
   {% csrf_token %}
   {{form}}
   <div class="mt-5">
-    <button type="submit" class="btn btn-primary">Editar Autor</button>
-    <button type="reset" class="btn btn-secondary">Reniciar</button>
-    <a href="{% url 'listarAutores' %}" class="btn btn-danger">Cancelar</a>
+    <button type="submit" class="btn btn-primary" data-toggle="loader">
+      Editar Autor
+    </button>
+    <button type="reset" class="btn btn-secondary">
+      Reniciar
+    </button>
+    <a href="{% url 'listarAutores' %}" class="btn btn-danger">
+      Cancelar
+    </a>
   </div>
 </form>
 {% endblock %}

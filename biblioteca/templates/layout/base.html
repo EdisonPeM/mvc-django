@@ -45,13 +45,13 @@
     {% load static %}
   </head>
   <body>
-    {% include "navbar.html" %}
+    {% include "layout/navbar.html" %}
 
     <main class="container py-3">{% block content %}{% endblock %}</main>
 
-    {% include "alerts.html" %}
+    {% include "components/alerts.html" %}
     
-    {% include "loader.html" %}
+    {% include "components/loader.html" %}
 
     {% block scripts %}{% endblock %}
   </body>

@@ -1,4 +1,5 @@
 from django.db import models
+import traceback
 
 class Genero(models.Model):
   class Meta:
@@ -9,20 +10,48 @@ class Genero(models.Model):
   
 class GenerosModel():
   def listarGeneros():
-    pass
+    try:
+      return Genero.objects.all()
+    except:
+      print(traceback.format_exc())
+      return []
   
   def insertarGenero(genero):
-    pass
+    try:
+      genero.save(force_insert=True)
+      return True      
+    except:
+      print(traceback.format_exc())
+      return False
   
   def obtenerGenero(id):
-    pass
+    try:
+      return Genero.objects.get(id_genero=id)
+    except Genero.DoesNotExist:
+      print(traceback.format_exc())
+      return None
   
   def modificarGenero(genero):
-    pass
+    try:
+      genero.save(force_update=True)
+      return True
+    except:
+      print(traceback.format_exc())
+      return False
   
-  def eliminarGenero(id):
-    pass
+  def eliminarGenero(id:int):
+    try:
+      genero = Genero.objects.get(id_genero=id)
+      genero.delete()
+      return True
+    except:
+      print(traceback.format_exc())
+      return False
   
   def totalGeneros():
-    pass
+    try:
+      return Genero.objects.count()
+    except:
+      print(traceback.format_exc())
+      return -1
 

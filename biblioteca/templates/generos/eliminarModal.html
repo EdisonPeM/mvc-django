@@ -1,0 +1,65 @@
+<div
+  class="modal fade"
+  id="eliminarGeneroModal"
+  tabindex="-1"
+  aria-labelledby="eliminarAutorModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form id="modal-form-eliminar-genero" method="POST">
+        <div class="modal-header">
+          <h1 class="modal-title fs-4" id="aliminarGeneroModalLabel">
+            Realmente desea eliminar el Genero
+          </h1>
+
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          {% csrf_token %}
+          <div id="modal-genero-info"></div>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Cancelar
+          </button>
+          <button
+            type="submit"
+            class="btn btn-danger"
+            data-bs-dismiss="modal"
+            data-toggle="loader"
+          >
+            Eliminar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% block scripts %}
+<script>
+  const myModalEl = document.getElementById("eliminarGeneroModal");
+  myModalEl.addEventListener("show.bs.modal", (event) => {
+    // Show Selected Autor Info
+    const data = event.relatedTarget.dataset;
+    const { codigoGenero, nombreGenero, descripcion } = data;
+    const modalBody = document.getElementById("modal-genero-info");
+    modalBody.innerHTML = `<p class="m-3"><strong>${codigoGenero}</strong> ${nombreGenero} (${descripcion})</p>`;
+
+    // Set form action value
+    const actionTemplate = "{% url 'eliminarGenero' ':codigo' %}";
+    const form = document.getElementById("modal-form-eliminar-genero");
+    form.action = actionTemplate.replace(":codigo", codigoGenero);
+  });
+</script>
+{% endblock %}

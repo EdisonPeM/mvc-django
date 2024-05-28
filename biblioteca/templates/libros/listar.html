@@ -1,0 +1,70 @@
+{% extends "layout/base.html" %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center flex-wrap">
+  <h1>Lista de Libros</h1>
+
+  {% comment %} <a href="{% url 'agregarLibro' %}" class="btn btn-primary">Agregar Libro</a> {% endcomment %}
+</div>
+
+<hr />
+
+<p>Total: {{ libros|length }} Libro{{ libros|length|pluralize:"es" }}</p>
+
+{% if libros|length > 0 %}
+<div
+  class="table-responsive overflow-y-auto position-relative"
+  style="max-height: 60dvh"
+>
+  <table class="table table-striped table-hover align-middle">
+    <thead class="position-sticky top-0 shadow-sm align-middle">
+      <tr>
+        <th>Codigo Libro</th>
+        <th class="text-center">Nombre Libro</th>
+        <th class="text-center">Nacionalidad</th>
+        <th class="text-end" >
+          <span class="d-none d-md-inline">Operaciones</span>
+        </th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      {% for libro in libros %}
+      <tr>
+        <td class="text-center">{{libro.codigo_libro}}</td>
+        <td class="text-center">{{libro.nombre_libro}}</td>
+        <td class="text-center">{{libro.nacionalidad}}</td>
+        <td class="d-flex flex-wrap flex-sm-nowrap gap-2 justify-content-end">
+          {% comment %} <a
+            href="{% url 'editarLibro' libro.codigo_libro %}"
+            class="btn btn-sm btn-primary"
+          >
+            <i class="bi bi-pencil"></i>
+            <span class="ms-1 d-none d-md-inline">Editar</span>
+          </a> {% endcomment %}
+          <button
+            class="btn btn-sm btn-danger"
+            data-bs-toggle="modal"
+            data-bs-target="#modal-eliminar-libro"
+          >
+            <i class="bi bi-trash3"></i>
+            <span class="ms-1 d-none d-md-inline">Borrar</span>
+          </button>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% else %}
+
+<div class="card">
+  <div class="card-body py-5 text-center">
+    <i class="bi bi-exclamation-circle"></i> 
+    <span>No hay libros para mostrar</span>
+  </div>
+</div>
+
+{% endif %}
+
+{% endblock %}

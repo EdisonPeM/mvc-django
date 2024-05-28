@@ -20,7 +20,10 @@ class Libro(models.Model):
   
 class LibrosModel():
   def listarLibros():
-    pass
+    try:
+      return Libro.objects.all()
+    except:
+      return []
   
   def insertarLibro(Libro):
     pass

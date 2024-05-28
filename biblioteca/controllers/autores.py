@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 
 # Import Models
 from ..models.autores import AutoresModel
-from ..forms.autoresForm import CrearAutoresForm, EditarAutoresForm
+from ..forms.autores import CrearAutoresForm, EditarAutoresForm
 
 class AutoresController:
   def listar(request):

@@ -1,7 +1,7 @@
 from django.urls import path, include
 
-from .controllers.indexController import IndexController
-from .controllers.autoresController import AutoresController
+from .controllers.index import IndexController
+from .controllers.autores import AutoresController
 
 # Create url patterns
 autoresPatterns = [

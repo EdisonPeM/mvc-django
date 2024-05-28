@@ -49,6 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
 
 ROOT_URLCONF = 'app.urls'
@@ -81,8 +82,8 @@ DATABASES = {
         "NAME": os.getenv('MYSQL_DATABASE'),
         "USER": os.getenv('MYSQL_USER'),
         "PASSWORD": os.getenv('MYSQL_PASSWORD'),
-        "HOST": os.getenv('MYSQL_HOST'),
-        "PORT": os.getenv('MYSQL_PORT'),
+        "HOST": os.getenv('MYSQL_HOST', 'localhost'),
+        "PORT": os.getenv('MYSQL_PORT', 3306),
     }
 }
 
@@ -103,5 +104,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+
+STATIC_ROOT = BASE_DIR / 'dist'
 
 APPEND_SLASH = False

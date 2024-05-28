@@ -1,0 +1,122 @@
+[
+  {
+    "model": "biblioteca.autor",
+    "fields": {
+      "codigo_autor": "AUT001",
+      "nombre_autor": "J.R.R. Tolkien",
+      "nacionalidad": "Reino Unido"
+    }
+  },
+  {
+    "model": "biblioteca.autor",
+    "fields": {
+      "codigo_autor": "AUT002",
+      "nombre_autor": "J.K. Rowling",
+      "nacionalidad": "Reino Unido"
+    }
+  },
+  {
+    "model": "biblioteca.autor",
+    "fields": {
+      "codigo_autor": "AUT003",
+      "nombre_autor": "Gabriel Garcia Marquez",
+      "nacionalidad": "Colombia"
+    }
+  },
+  {
+    "model": "biblioteca.autor",
+    "fields": {
+      "codigo_autor": "AUT004",
+      "nombre_autor": "Jane Austen",
+      "nacionalidad": "Reino Unido"
+    }
+  },
+  {
+    "model": "biblioteca.autor",
+    "fields": {
+      "codigo_autor": "AUT005",
+      "nombre_autor": "Dante Alighieri",
+      "nacionalidad": "Italia"
+    }
+  },
+  {
+    "model": "biblioteca.autor",
+    "fields": {
+      "codigo_autor": "AUT006",
+      "nombre_autor": "Paulo Coelho",
+      "nacionalidad": "Brasil"
+    }
+  },
+  {
+    "model": "biblioteca.autor",
+    "fields": {
+      "codigo_autor": "AUT007",
+      "nombre_autor": "Mario Benedetti",
+      "nacionalidad": "Uruguay"
+    }
+  },
+  {
+    "model": "biblioteca.autor",
+    "fields": {
+      "codigo_autor": "AUT008",
+      "nombre_autor": "Julio Cortázar",
+      "nacionalidad": "Argentina"
+    }
+  },
+  {
+    "model": "biblioteca.autor",
+    "fields": {
+      "codigo_autor": "AUT009",
+      "nombre_autor": "Ernesto Sábato",
+      "nacionalidad": "Argentina"
+    }
+  },
+  {
+    "model": "biblioteca.autor",
+    "fields": {
+      "codigo_autor": "AUT010",
+      "nombre_autor": "Charles Dickens",
+      "nacionalidad": "Reino Unido"
+    }
+  },
+  {
+    "model": "biblioteca.autor",
+    "fields": {
+      "codigo_autor": "AUT011",
+      "nombre_autor": "Oscar Wilde",
+      "nacionalidad": "Irlanda"
+    }
+  },
+  {
+    "model": "biblioteca.autor",
+    "fields": {
+      "codigo_autor": "AUT012",
+      "nombre_autor": "Stephen King",
+      "nacionalidad": "Estados Unidos"
+    }
+  },
+  {
+    "model": "biblioteca.autor",
+    "fields": {
+      "codigo_autor": "AUT013",
+      "nombre_autor": "Pablo Neruda",
+      "nacionalidad": "Chile"
+    }
+  },
+  {
+    "model": "biblioteca.autor",
+    "fields": {
+      "codigo_autor": "AUT014",
+      "nombre_autor": "Edgar Allan Poe",
+      "nacionalidad": "Estados Unidos"
+    }
+  },
+  {
+    "model": "biblioteca.autor",
+    "fields": {
+      "codigo_autor": "AUT015",
+      "nombre_autor": "Mario Mendoza",
+      "nacionalidad": "Colombia"
+    }
+  }
+]

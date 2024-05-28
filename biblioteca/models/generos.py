@@ -31,7 +31,7 @@ class GenerosModel():
       print(traceback.format_exc())
       return None
   
-  def modificarGenero(genero):
+  def modificarGenero(genero:Genero):
     try:
       genero.save(force_update=True)
       return True
@@ -39,9 +39,8 @@ class GenerosModel():
       print(traceback.format_exc())
       return False
   
-  def eliminarGenero(id:int):
+  def eliminarGenero(genero:Genero):
     try:
-      genero = Genero.objects.get(id_genero=id)
       genero.delete()
       return True
     except:

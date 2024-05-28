@@ -1,7 +1,8 @@
 from django.urls import path, include
 
-from .controllers import indexController, autoresController, generosController
+
 from .controllers.index import IndexController
+from .controllers.generosController import GenerosController
 from .controllers.autores import AutoresController
 
 # Create url patterns
@@ -13,10 +14,10 @@ autoresPatterns = [
 ]
 
 generosPatterns = [
-    path('', generosController.listar, name="listarGeneros"),
-    path('/nuevo', generosController.agregar, name="agregarGenero"),
-    path('/editar/<str:codigo_autor>', generosController.editar, name="editarGenero"),
-    path('/eliminar/<str:codigo_autor>', generosController.eliminar, name="eliminarGenero")
+    path('', GenerosController.listar, name="listarGeneros"),
+    path('/nuevo', GenerosController.agregar, name="agregarGenero"),
+    path('/editar/<str:codigo_genero>', GenerosController.editar, name="editarGenero"),
+    path('/eliminar/<str:codigo_genero>', GenerosController.eliminar, name="eliminarGenero")
 ]
 
 urlpatterns = [

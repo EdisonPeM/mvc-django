@@ -1,8 +1,7 @@
 {% if alert %}
 <div class="toast-container bottom-0 end-0 me-3">
   <div
-    class="toast align-items-center {% if alert.type == 'success' %}bg-success{% elif alert.type == 'error' %}bg-danger{% endif %} border-0 mb-3"
-    style="--bs-bg-opacity: 0.9"
+    class="toast align-items-center {% if alert.type == 'success' %}text-bg-success{% elif alert.type == 'error' %}text-bg-danger{% endif %} bg-opacity-75 border-0 mb-3"
     role="alert"
     aria-live="assertive"
     aria-atomic="true"

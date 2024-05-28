@@ -71,12 +71,5 @@
     const actionTemplate = "{% url 'eliminarAutor' ':codigo' %}";
     form.action = actionTemplate.replace(":codigo", codigoAutor);
   });
-
-  myModalEl.addEventListener("hide.bs.modal", (event) => {
-    codigoAutorEl.textContent = "";
-    nombreAutorEl.textContent = "";
-    nacionalidadAutorEl.textContent = "";
-    form.action = "#";
-  });
 </script>
 {% endblock %}

@@ -2,7 +2,7 @@ from django.urls import path, include
 
 
 from .controllers.index import IndexController
-from .controllers.generosController import GenerosController
+from .controllers.generos import GenerosController
 from .controllers.autores import AutoresController
 
 # Create url patterns

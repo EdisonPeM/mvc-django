@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 
 # Import Models
 from ..models.generos import GenerosModel
-from ..forms.generosForm import CrearGenerosForm, EditarGenerosForm
+from ..forms.generos import CrearGenerosForm, EditarGenerosForm
 class GenerosController:
 
   def listar(request):

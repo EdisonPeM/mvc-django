@@ -16,8 +16,8 @@ autoresPatterns = [
 generosPatterns = [
     path('', GenerosController.listar, name="listarGeneros"),
     path('/nuevo', GenerosController.agregar, name="agregarGenero"),
-    path('/editar/<str:codigo_genero>', GenerosController.editar, name="editarGenero"),
-    path('/eliminar/<str:codigo_genero>', GenerosController.eliminar, name="eliminarGenero")
+    path('/editar/<str:id_genero>', GenerosController.editar, name="editarGenero"),
+    path('/eliminar/<str:id_genero>', GenerosController.eliminar, name="eliminarGenero")
 ]
 
 urlpatterns = [

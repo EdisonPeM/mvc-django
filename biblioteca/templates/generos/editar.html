@@ -1,7 +1,7 @@
 {% extends "layout/base.html" %} 
 
 {% block content %}
-<h1>Editar Autor {{ genero.id_genero }}</h1>
+<h1>Editar Genero {{ genero.id_genero }}</h1>
 <form class="mt-3" method="post" novalidate>
   {% csrf_token %}
   {{form}}

@@ -9,7 +9,7 @@
 
 <hr />
 
-<p>Total: {{ generos|length }} Generos{{ generos|length|pluralize:"es" }}</p>
+<p>Total: {{ generos|length }} Genero{{ generos|length|pluralize:"s" }}</p>
 
 {% if generos|length > 0 %}
 <div
@@ -19,7 +19,7 @@
   <table class="table table-striped table-hover align-middle">
     <thead class="position-sticky top-0 shadow align-middle">
       <tr>
-        <th>Codigo Genero</th>
+        <th>ID Genero</th>
         <th class="text-center">Nombre Genero</th>
         <th class="text-center">Descripción</th>
         <th class="text-end" >
@@ -47,7 +47,6 @@
             data-bs-target="#modal-eliminar-genero"
             data-id-genero="{{genero.id_genero}}"
             data-nombre-genero="{{genero.nombre_genero}}"
-            data-descripcion-genero="{{genero.descripcion}}"
           >
             <i class="bi bi-trash3"></i>
             <span class="ms-1 d-none d-md-inline">Borrar</span>

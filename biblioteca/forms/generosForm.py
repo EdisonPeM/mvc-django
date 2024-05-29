@@ -4,9 +4,10 @@ from django import forms
 from .baseForm import BaseModelForm
 from ..models.generos import Genero
 
-codigo_autor_validator = RegexValidator(
-  message="Ingrese un código valido en formato 12323.",
-  code="invalid_autor_code",
+id_genero_validator = RegexValidator(
+  regex=r'^\d{6}$',
+  message="Ingrese un código valido en formato 123456.",
+  code="invalid_genero_id",
 )
 
 labels = {
@@ -20,7 +21,7 @@ class CrearGenerosForm(BaseModelForm):
     label=labels["id_genero"],
     max_length=6,
     required=True,
-    validators=[codigo_autor_validator]
+    validators=[id_genero_validator]
   )
 
   class Meta():

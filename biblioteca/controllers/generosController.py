@@ -25,8 +25,8 @@ class GenerosController:
 
     return render(request, "generos/agregar.html", { "form": form })
 
-  def editar(request, codigo_genero:int):
-    genero = GenerosModel.obtenerGenero(codigo_genero)
+  def editar(request, id_genero:int):
+    genero = GenerosModel.obtenerGenero(id_genero)
     if genero:
       form = EditarGenerosForm(instance=genero)
       if request.method == 'POST':
@@ -40,12 +40,12 @@ class GenerosController:
 
       return render(request, "generos/editar.html", { "autor": genero, "form": form })
     else:
-      raise Http404("Autor does not exist")
+      raise Http404("Generos does not exist")
 
-  def eliminar(request, codigo_genero):
-    print("entraa", codigo_genero)
+  def eliminar(request, id_genero):
+    print("entraa", id_genero)
     if request.method == 'POST':
-      genero = GenerosModel.obtenerGenero(codigo_genero)
+      genero = GenerosModel.obtenerGenero(id_genero)
       if genero:
         if GenerosModel.eliminarGenero(genero):
           request.session['alert'] = { 'type': 'success', 'message': 'El genero ha sido eliminado exitosamente' }

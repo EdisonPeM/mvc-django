@@ -12,9 +12,9 @@ class Libro(models.Model):
   nombre_libro = models.CharField(max_length=50)
   descripcion = models.TextField()
   # Foreign Keys
-  autor = models.ForeignKey(Autor, on_delete=models.CASCADE, db_column='codigo_autor')
-  editorial = models.ForeignKey(Editorial, on_delete=models.CASCADE, db_column='codigo_editorial')
-  genero = models.ForeignKey(Genero, on_delete=models.CASCADE, db_column='id_genero')
+  autor = models.ForeignKey(Autor, on_delete=models.CASCADE, db_column='codigo_autor', related_name='libros')
+  editorial = models.ForeignKey(Editorial, on_delete=models.CASCADE, db_column='codigo_editorial', related_name='libros')
+  genero = models.ForeignKey(Genero, on_delete=models.CASCADE, db_column='id_genero', related_name='libros')
   # Biblioteca Data
   existencias = models.PositiveIntegerField()
   precio = models.DecimalField(max_digits=10, decimal_places=2)

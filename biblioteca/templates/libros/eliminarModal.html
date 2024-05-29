@@ -1,16 +1,16 @@
 <div
   class="modal fade"
-  id="modal-eliminar-autor"
+  id="modal-eliminar-libro"
   tabindex="-1"
-  aria-labelledby="modal-eliminar-autor-label"
+  aria-labelledby="modal-eliminar-libro-label"
   aria-hidden="true"
 >
   <div class="modal-dialog">
     <div class="modal-content">
-      <form id="modal-eliminar-autor-form" method="POST">
+      <form id="modal-eliminar-libro-form" method="POST">
         <div class="modal-header">
-          <h1 class="modal-title fs-4" id="modal-eliminar-autor-label">
-            Realmente desea eliminar el autor
+          <h1 class="modal-title fs-4" id="modal-eliminar-libro-label">
+            Realmente desea eliminar el libro
           </h1>
 
           <button
@@ -23,8 +23,8 @@
         <div class="modal-body">
           {% csrf_token %}
           <p class="m-3">
-            <strong id="modal-eliminar-autor-codigo"></strong>:
-            <span id="modal-eliminar-autor-info"></span>
+            <strong id="modal-eliminar-libro-codigo"></strong>:
+            <span id="modal-eliminar-libro-info"></span>
           </p>
         </div>
         <div class="modal-footer">
@@ -51,22 +51,22 @@
 
 {% block scripts %}
 <script>
-  const myModalEl = document.getElementById("modal-eliminar-autor");
-  const form = document.getElementById("modal-eliminar-autor-form");
-  const codigoAutorEl = document.getElementById("modal-eliminar-autor-codigo");
-  const infoAutorEl = document.getElementById("modal-eliminar-autor-info");
+  const myModalEl = document.getElementById("modal-eliminar-libro");
+  const form = document.getElementById("modal-eliminar-libro-form");
+  const codigoLibroEl = document.getElementById("modal-eliminar-libro-codigo");
+  const infoLibroEl = document.getElementById("modal-eliminar-libro-info");
 
   myModalEl.addEventListener("show.bs.modal", (event) => {
-    // Show Selected Autor Info
+    // Show Selected Libro Info
     const data = event.relatedTarget.dataset;
-    const { codigoAutor, infoAutor } = data;
+    const { codigoLibro, infoLibro } = data;
 
-    codigoAutorEl.textContent = codigoAutor;
-    infoAutorEl.textContent = infoAutor;
+    codigoLibroEl.textContent = codigoLibro;
+    infoLibroEl.textContent = infoLibro;
 
     // Set form action value
-    const actionTemplate = "{% url 'eliminarAutor' ':codigo' %}";
-    form.action = actionTemplate.replace(":codigo", codigoAutor);
+    const actionTemplate = "{% url 'eliminarLibro' ':codigo' %}";
+    form.action = actionTemplate.replace(":codigo", codigoLibro);
   });
 </script>
 {% endblock %}

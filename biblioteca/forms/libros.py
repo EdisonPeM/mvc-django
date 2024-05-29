@@ -17,7 +17,7 @@ labels = {
 }
 
 codigo_libro_field = forms.CharField(
-  label=labels["codigo_autor"],
+  label=labels["codigo_libro"],
   max_length=6,
   required=True,
   validators=[

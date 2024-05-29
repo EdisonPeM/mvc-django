@@ -1,3 +1,4 @@
+from django.core.validators import RegexValidator
 from django import forms
 
 from .baseForm import BaseModelForm
@@ -15,7 +16,20 @@ labels = {
   'id_genero': 'Genero'
 }
 
-precioField = forms.DecimalField(
+codigo_libro_field = forms.CharField(
+  label=labels["codigo_autor"],
+  max_length=6,
+  required=True,
+  validators=[
+    RegexValidator(
+      regex=r'^LIB\d{3}$',
+      message="Ingrese un código valido en formato LIB000.",
+      code="invalid_libro_code",
+    )
+  ]
+)
+
+precio_field = forms.DecimalField(
   required=True,
   max_digits=10,
   decimal_places=2,
@@ -24,10 +38,11 @@ precioField = forms.DecimalField(
   help_text = "En pesos colombianos",
 )
 # Additional symbol to show in the UI
-precioField.prefix = '$'
+precio_field.prefix = '$'
 
 class CrearLibrosForm(BaseModelForm):
-  precio = precioField
+  codigo_libro = codigo_libro_field
+  precio = precio_field
   
   class Meta():
     model = Libro
@@ -35,7 +50,7 @@ class CrearLibrosForm(BaseModelForm):
     labels = labels
     
 class EditarLibrosForm(BaseModelForm):
-  precio = precioField
+  precio = precio_field
 
   class Meta():
     model = Libro

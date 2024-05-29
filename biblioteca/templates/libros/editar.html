@@ -1,0 +1,17 @@
+{% extends "layout/base.html" %} 
+
+{% block content %}
+<h1>Editar Libro {{ libro.codigo_libro }}</h1>
+<form class="mt-3" method="post" novalidate>
+  {% csrf_token %}
+  {{form}}
+  <div class="mt-5">
+    <button type="submit" class="btn btn-primary" data-toggle="loader">
+      Editar Libro
+    </button>
+    <a href="{% url 'listarLibros' %}" class="btn btn-danger">
+      Cancelar
+    </a>
+  </div>
+</form>
+{% endblock %}

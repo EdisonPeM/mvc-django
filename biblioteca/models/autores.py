@@ -6,6 +6,10 @@ class Autor(models.Model):
   codigo_autor = models.CharField(max_length=6, primary_key=True)
   nombre_autor = models.CharField(max_length=50)
   nacionalidad = models.CharField(max_length=50)
+  
+  def __str__(self):
+    # set string format as 'nombre_autor (nacionalidad)'
+    return f'{self.nombre_autor} ({self.nacionalidad})'
 
 class AutoresModel():
   def listarAutores():

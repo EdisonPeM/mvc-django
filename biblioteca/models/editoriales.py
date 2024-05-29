@@ -7,23 +7,40 @@ class Editorial(models.Model):
   nombre_editorial = models.CharField(max_length=30)
   contacto = models.CharField(max_length=30)
   telefono = models.CharField(max_length=9)
-  
-  
+
+
 class EditorialModel():
   def listarEditoriales():
-    pass
-  
-  def insertarEditorial(editorial):
-    pass
+    try:
+      return Editorial.objects.all()
+    except:
+      return []
   
   def obtenerEditorial(codigo):
-    pass
+    try:
+      return Editorial.objects.get(codigo_editorial=codigo)
+    except Editorial.DoesNotExist:
+      return None
+  
+  def insertarEditorial(editorial):
+    try:
+      editorial.save(force_insert=True)
+      return True
+    except:
+      return False
   
   def modificarEditorial(editorial):
-    pass
+    try:
+      editorial.save(force_update=True)
+      return True
+    except:
+      return False
   
   def eliminarEditorial(codigo):
-    pass
+    try:
+      return Editorial.delete(codigo)
+    except:
+      return []
   
   def totalEditoriales():
     pass

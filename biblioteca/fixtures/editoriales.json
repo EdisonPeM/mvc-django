@@ -1,18 +1,92 @@
 [
-    {
-      "model": "biblioteca.editorial",
-      "fields": {
-        "codigo_editorial": "AUT001",
-        "nombre_autor": "J.R.R. Tolkien",
-        "nacionalidad": "Reino Unido"
-      }
-    },
-    {
-      "model": "biblioteca.autor",
-      "fields": {
-        "codigo_autor": "AUT002",
-        "nombre_autor": "J.K. Rowling",
-        "nacionalidad": "Reino Unido"
-      }
+  {
+    "model": "biblioteca.editorial",
+    "fields": {
+      "codigo_editorial": "EDI001",
+      "nombre_editorial": "Alfaguara",
+      "contacto": "Cristian Gonzales",
+      "telefono": "601350350"
     }
+  },
+  {
+    "model": "biblioteca.editorial",
+    "fields": {
+      "codigo_editorial": "EDI002",
+      "nombre_editorial": "Lumen",
+      "contacto": "Angelino Hernandez",
+      "telefono": "601450450"
+    }
+  },
+  {
+    "model": "biblioteca.editorial",
+    "fields": {
+      "codigo_editorial": "EDI003",
+      "nombre_editorial": "Alianza",
+      "contacto": "Yeni Arboleda",
+      "telefono": "601150150"
+    }
+  },
+  {
+    "model": "biblioteca.editorial",
+    "fields": {
+      "codigo_editorial": "EDI004",
+      "nombre_editorial": "Babel",
+      "contacto": "Angela Valderrama",
+      "telefono": "601250250"
+    }
+  },
+  {
+    "model": "biblioteca.editorial",
+    "fields": {
+      "codigo_editorial": "EDI005",
+      "nombre_editorial": "Carvajal",
+      "contacto": "Orlango Nieto",
+      "telefono": "601550550"
+    }
+  },
+  {
+    "model": "biblioteca.editorial",
+    "fields": {
+      "codigo_editorial": "EDI006",
+      "nombre_editorial": "Planeta",
+      "contacto": "Franco Escamilla",
+      "telefono": "601650650"
+    }
+  },
+  {
+    "model": "biblioteca.editorial",
+    "fields": {
+      "codigo_editorial": "EDI007",
+      "nombre_editorial": "Silueta",
+      "contacto": "Poncho de Anda",
+      "telefono": "601750750"
+    }
+  },
+  {
+    "model": "biblioteca.editorial",
+    "fields":{
+      "codigo_editorial": "EDI008",
+      "nombre_editorial": "Laguna",
+      "contacto": "Lupe Orlandi",
+      "telefono": "601850850"
+    }
+  },
+  {
+    "model": "biblioteca.editorial",
+    "fields":{
+      "codigo_editorial": "EDI009",
+      "nombre_editorial": "Esri",
+      "contacto": "Jack Dangermond",
+      "telefono": "601950950"
+    }
+  },
+  {
+    "model": "biblioteca.editorial",
+    "fields":{
+      "codigo_editorial": "EDI010",
+      "nombre_editorial": "Educar",
+      "contacto": "Rodrigo Escamilla",
+      "telefono": "601155155"
+    }
+  }
 ]

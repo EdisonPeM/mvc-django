@@ -1,0 +1,78 @@
+<div
+  class="modal fade"
+  id="modal-eliminar-editorial"
+  tabindex="-1"
+  aria-labelledby="modal-eliminar-editorial-label"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form id="modal-eliminar-editorial-form" method="POST">
+        <div class="modal-header">
+          <h1 class="modal-title fs-4" id="modal-eliminar-editorial-label">
+            Realmente desea eliminar la editorial
+          </h1>
+
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          {% csrf_token %}
+          <p class="m-3">
+            <strong id="modal-eliminar-editorial-codigo"></strong>:
+            <span id="modal-eliminar-editorial-nombre"></span>
+            (<span id="modal-eliminar-editorial-contacto"></span>)
+            (<span id="modal-eliminar-editorial-telefono"></span>)
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Cancelar
+          </button>
+          <button
+            type="submit"
+            class="btn btn-danger"
+            data-bs-dismiss="modal"
+            data-toggle="loader"
+          >
+            Eliminar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% block scripts %}
+<script>
+  const myModalEl = document.getElementById("modal-eliminar-editorial");
+  const form = document.getElementById("modal-eliminar-editorial-form");
+  const codigoEditorialEl = document.getElementById("modal-eliminar-editorial-codigo");
+  const nombreEditorialEl = document.getElementById("modal-eliminar-editorial-nombre");
+  const contactoEditorialEl = document.getElementById("modal-eliminar-editorial-contacto");
+  const telefonoEditorialEl = document.getElementById("modal-eliminar-editorial-telefono");
+
+  myModalEl.addEventListener("show.bs.modal", (event) => {
+    // Show Selected Editorial Info
+    const data = event.relatedTarget.dataset;
+    const { codigoEditorial, nombreEditorial, contactoEditorial, telefonoEditorial } = data;
+
+    codigoEditorialEl.textContent = codigoEditorial;
+    nombreEditorialEl.textContent = nombreEditorial;
+    contactoEditorialEl.textContent = contactoEditorial;
+    telefonoEditorialEl.textContent = telefonoEditorial;
+
+    // Set form action value
+    const actionTemplate = "{% url 'eliminarEditorial' ':codigo' %}";
+    form.action = actionTemplate.replace(":codigo", codigoEditorial);
+  });
+</script>
+{% endblock %}

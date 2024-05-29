@@ -24,8 +24,7 @@
           {% csrf_token %}
           <p class="m-3">
             <strong id="modal-eliminar-autor-codigo"></strong>:
-            <span id="modal-eliminar-autor-nombre"></span>
-            (<span id="modal-eliminar-autor-nacionalidad"></span>)
+            <span id="modal-eliminar-autor-info"></span>
           </p>
         </div>
         <div class="modal-footer">
@@ -55,17 +54,15 @@
   const myModalEl = document.getElementById("modal-eliminar-autor");
   const form = document.getElementById("modal-eliminar-autor-form");
   const codigoAutorEl = document.getElementById("modal-eliminar-autor-codigo");
-  const nombreAutorEl = document.getElementById("modal-eliminar-autor-nombre");
-  const nacionalidadAutorEl = document.getElementById("modal-eliminar-autor-nacionalidad");
+  const infoAutorEl = document.getElementById("modal-eliminar-autor-info");
 
   myModalEl.addEventListener("show.bs.modal", (event) => {
     // Show Selected Autor Info
     const data = event.relatedTarget.dataset;
-    const { codigoAutor, nombreAutor, nacionalidadAutor } = data;
+    const { codigoAutor, infoAutor } = data;
 
     codigoAutorEl.textContent = codigoAutor;
-    nombreAutorEl.textContent = nombreAutor;
-    nacionalidadAutorEl.textContent = nacionalidadAutor;
+    infoAutorEl.textContent = infoAutor;
 
     // Set form action value
     const actionTemplate = "{% url 'eliminarAutor' ':codigo' %}";

@@ -26,17 +26,18 @@ class LibrosModel():
     except:
       return []
   
-  def insertarLibro(Libro):
-    pass
-  
   def obtenerLibro(codigo):
     pass
+  
+  def insertarLibro(libro):
+    try:
+      libro.save(force_insert=True)
+      return True
+    except:
+      return False
   
   def modificarLibro(libro):
     pass
   
   def eliminarLibro(codigo):
     pass 
-  
-  def totalLibros():
-    pass

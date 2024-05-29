@@ -13,4 +13,14 @@ class LibrosController:
 
   def agregar(request):
     form = CrearLibrosForm()
+    if request.method == 'POST':
+      form = CrearLibrosForm(request.POST)
+      if form.is_valid():
+        libro = form.save(commit=False)
+        if LibrosModel.insertarLibro(libro):
+          request.session['alert'] = { 'type': 'success', 'message': 'El libro ha sido agregado exitosamente' }
+        else:
+          request.session['alert'] = { 'type': 'error', 'message': 'Ha ocurrido un problema al agregar el libro' }
+        return redirect('listarLibros')
+
     return render(request, "libros/agregar.html", { "form": form })

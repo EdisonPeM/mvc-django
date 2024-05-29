@@ -56,6 +56,8 @@
               class="btn btn-sm btn-danger"
               data-bs-toggle="modal"
               data-bs-target="#modal-eliminar-libro"
+              data-codigo-libro="{{libro.codigo_libro}}"
+              data-info-libro="{{libro}}"
             >
               <i class="bi bi-trash3"></i>
               <span class="ms-1 d-none d-md-inline">Borrar</span>
@@ -67,6 +69,8 @@
     </tbody>
   </table>
 </div>
+
+{% include 'libros/eliminarModal.html' %}
 
 {% else %}
 

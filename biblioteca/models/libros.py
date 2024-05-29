@@ -19,6 +19,10 @@ class Libro(models.Model):
   existencias = models.PositiveIntegerField()
   precio = models.DecimalField(max_digits=10, decimal_places=2)
   
+  def __str__(self):
+    # set string format as 'nombre_libro, nombre_autor'
+    return f'{self.nombre_libro}, {self.autor.nombre_autor}'
+  
 class LibrosModel():
   def listarLibros():
     try:

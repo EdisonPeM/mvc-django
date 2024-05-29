@@ -41,3 +41,15 @@ class LibrosController:
       return render(request, "libros/editar.html", { "libro": libro, "form": form })
     else:
       raise Http404("Libro does not exist")
+    
+  def eliminar(request, codigo_libro):
+    if request.method == 'POST':
+      libro = LibrosModel.obtenerLibro(codigo_libro)
+      if libro:
+        if LibrosModel.eliminarLibro(libro):
+          request.session['alert'] = { 'type': 'success', 'message': 'El libro ha sido eliminado exitosamente' }
+        else:
+          request.session['alert'] = { 'type': 'error', 'message': 'Ha ocurrido un problema al eliminar el libro' }
+
+    return redirect('listarLibros')
+

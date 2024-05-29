@@ -50,5 +50,9 @@ class LibrosModel():
     except:
       return False
   
-  def eliminarLibro(codigo):
-    pass 
+  def eliminarLibro(libro):
+    try:
+      libro.delete()
+      return True
+    except:
+      return False

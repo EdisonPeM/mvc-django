@@ -15,9 +15,9 @@ autoresPatterns = [
 # Create libros url patterns
 librosPatterns = [
     path('', LibrosController.listar, name="listarLibros"),
-    # path('/nuevo', LibrosController.agregar, name="agregarAutor"),
-    # path('/editar/<str:codigo_autor>', LibrosController.editar, name="editarAutor"),
-    # path('/eliminar/<str:codigo_autor>', LibrosController.eliminar, name="eliminarAutor")
+    path('/nuevo', LibrosController.agregar, name="agregarLibro"),
+    # path('/editar/<str:codigo_libro>', LibrosController.editar, name="editarLibro"),
+    # path('/eliminar/<str:codigo_libro>', LibrosController.eliminar, name="eliminarLibro")
 ]
  
 # Define Urls Patterns

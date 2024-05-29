@@ -59,7 +59,7 @@
   myModalEl.addEventListener("show.bs.modal", (event) => {
     // Show Selected Editorial Info
     const data = event.relatedTarget.dataset;
-    const { codigoEditorial, nombreEditorial, contactoEditorial, telefonoEditorial } = data;
+    const { codigoEditorial, nombreEditorial } = data;
 
     codigoEditorialEl.textContent = codigoEditorial;
     nombreEditorialEl.textContent = nombreEditorial;

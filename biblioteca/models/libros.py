@@ -26,7 +26,7 @@ class Libro(models.Model):
 class LibrosModel():
   def listarLibros():
     try:
-      return Libro.objects.all()
+      return Libro.objects.all().prefetch_related('autor', 'genero', 'editorial')
     except:
       return []
   

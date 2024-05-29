@@ -10,13 +10,14 @@ class Libro(models.Model):
     db_table = 'libros'
   codigo_libro = models.CharField(max_length=9, primary_key=True)
   nombre_libro = models.CharField(max_length=50)
-  existencias = models.IntegerField()
-  precio = models.DecimalField(max_digits=10, decimal_places=2)
   descripcion = models.TextField()
   # Foreign Keys
   codigo_autor = models.ForeignKey(Autor, on_delete=models.CASCADE)
   codigo_editorial = models.ForeignKey(Editorial, on_delete=models.CASCADE)
   id_genero = models.ForeignKey(Genero, on_delete=models.CASCADE)
+  # Biblioteca Data
+  existencias = models.PositiveIntegerField()
+  precio = models.DecimalField(max_digits=10, decimal_places=2)
   
 class LibrosModel():
   def listarLibros():

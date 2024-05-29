@@ -1,0 +1,18 @@
+[
+    {
+      "model": "biblioteca.editorial",
+      "fields": {
+        "codigo_editorial": "AUT001",
+        "nombre_autor": "J.R.R. Tolkien",
+        "nacionalidad": "Reino Unido"
+      }
+    },
+    {
+      "model": "biblioteca.autor",
+      "fields": {
+        "codigo_autor": "AUT002",
+        "nombre_autor": "J.K. Rowling",
+        "nacionalidad": "Reino Unido"
+      }
+    }
+]

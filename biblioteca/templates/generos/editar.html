@@ -1,0 +1,20 @@
+{% extends "layout/base.html" %} 
+
+{% block content %}
+<h1>Editar Genero {{ genero.id_genero }}</h1>
+<form class="mt-3" method="post" novalidate>
+  {% csrf_token %}
+  {{form}}
+  <div class="mt-5">
+    <button type="submit" class="btn btn-primary" data-toggle="loader">
+      Editar Genero
+    </button>
+    <button type="reset" class="btn btn-secondary">
+      Reniciar
+    </button>
+    <a href="{% url 'listarGeneros' %}" class="btn btn-danger">
+      Cancelar
+    </a>
+  </div>
+</form>
+{% endblock %}

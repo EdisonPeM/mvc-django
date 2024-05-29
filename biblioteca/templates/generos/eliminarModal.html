@@ -1,0 +1,77 @@
+<div
+  class="modal fade"
+  id="modal-eliminar-genero"
+  tabindex="-1"
+  aria-labelledby="modal-eliminar-genero-label"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form id="modal-eliminar-genero-form" method="POST">
+        <div class="modal-header">
+          <h1 class="modal-title fs-4" id="modal-eliminar-genero-label">
+            Realmente desea eliminar el Genero
+          </h1>
+
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          {% csrf_token %}
+          <p class="m-3">
+            <strong id="modal-eliminar-genero-codigo"></strong>:
+            (<span id="modal-eliminar-genero-nombre"></span>)
+            
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Cancelar
+          </button>
+          <button
+            type="submit"
+            class="btn btn-danger"
+            data-bs-dismiss="modal"
+            data-toggle="loader"
+          >
+            Eliminar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% block scripts %}
+<script>
+  const myModalEl = document.getElementById("modal-eliminar-genero");
+  const form = document.getElementById("modal-eliminar-genero-form");
+  const codigoGeneroEl = document.getElementById("modal-eliminar-genero-codigo");
+  const nombreGeneroEl = document.getElementById("modal-eliminar-genero-nombre");
+  //const descripcionGeneroEl = document.getElementById("modal-eliminar-genero-descripcion");
+
+  myModalEl.addEventListener("show.bs.modal", (event) => {
+    // Show Selected Autor Info
+    const data = event.relatedTarget.dataset;
+    console.log(data)
+    const { idGenero, nombreGenero} = data;
+
+    codigoGeneroEl.textContent = idGenero;
+    nombreGeneroEl.textContent = nombreGenero;
+    //descripcionGeneroEl.textContent = descripcionGenero;
+
+    // Set form action value
+    const actionTemplate = "{% url 'eliminarGenero' ':codigo' %}";
+    console.log(idGenero)
+    form.action = actionTemplate.replace(":codigo", idGenero);
+  });
+</script>
+{% endblock %}

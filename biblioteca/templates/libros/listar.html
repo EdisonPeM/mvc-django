@@ -11,7 +11,7 @@
 
 <hr />
 
-<p>Total: {{ libros|length }} Libro{{ libros|length|pluralize:"es" }}</p>
+<p>Total: {{ libros|length }} Libro{{ libros|length|pluralize:"s" }}</p>
 
 {% if libros|length > 0 %}
 <div
@@ -21,7 +21,7 @@
   <table class="table table-striped table-hover align-middle text-center">
     <thead class="position-sticky top-0 shadow-sm align-middle">
       <tr>
-        <th class="text-start">Codigo</th>
+        <th>Codigo</th>
         <th>Nombre</th>
         <th>Autor</th>
         <th>Genero</th>
@@ -36,14 +36,14 @@
     <tbody class="table-group-divider">
       {% for libro in libros %}
       <tr>
-        <td class="text-start">{{libro.codigo_libro}}</td>
+        <td>{{libro.codigo_libro}}</td>
         <td>{{libro.nombre_libro}}</td>
         <td>{{libro.autor.nombre_autor}}</td>
         <td>{{libro.genero.nombre_genero}}</td>
         <td>{{libro.editorial.nombre_editorial}}</td>
         <td>{{libro.existencias}}</td>
         <td>${{libro.precio|floatformat:2|intcomma}}</td>
-        <td class="text-end">
+        <td>
           <div class="d-flex flex-wrap flex-sm-nowrap gap-2 justify-content-end">
             <a
               href="{% url 'editarLibro' libro.codigo_libro %}"

@@ -197,7 +197,7 @@
   {  
     "model": "biblioteca.libro",
     "fields": {
-      "codigo_libro": "LIB017",
+      "codigo_libro": "LIB016",
       "nombre_libro": "El Resplandor",
       "descripcion": "Libro El Resplandor",
       "autor": "AUT012",
@@ -210,7 +210,7 @@
   {  
     "model": "biblioteca.libro",
     "fields": {
-      "codigo_libro": "LIB018",
+      "codigo_libro": "LIB017",
       "nombre_libro": "Cien sonetos de amor",
       "descripcion": "Libro Cien sonetos de amor",
       "autor": "AUT013",
@@ -223,7 +223,7 @@
   {  
     "model": "biblioteca.libro",
     "fields": {
-      "codigo_libro": "LIB019",
+      "codigo_libro": "LIB018",
       "nombre_libro": "El Cuervo",
       "descripcion": "Libro El Cuervo",
       "autor": "AUT014",
@@ -236,7 +236,7 @@
   {  
     "model": "biblioteca.libro",
     "fields": {
-      "codigo_libro": "LIB020",
+      "codigo_libro": "LIB019",
       "nombre_libro": "El Gato Negro",
       "descripcion": "Libro El Gato Negro",
       "autor": "AUT014",

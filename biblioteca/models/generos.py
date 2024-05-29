@@ -8,6 +8,9 @@ class Genero(models.Model):
   nombre_genero = models.CharField(max_length=40)
   descripcion = models.CharField(max_length=100)
   
+  def __str__(self):
+    return self.nombre_genero
+  
 class GenerosModel():
   def listarGeneros():
     try:

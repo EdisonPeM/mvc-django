@@ -8,8 +8,7 @@ class Autor(models.Model):
   nacionalidad = models.CharField(max_length=50)
   
   def __str__(self):
-    # set string format as 'nombre_autor (nacionalidad)'
-    return f'{self.nombre_autor} ({self.nacionalidad})'
+    return self.nombre_autor
 
 class AutoresModel():
   def listarAutores():

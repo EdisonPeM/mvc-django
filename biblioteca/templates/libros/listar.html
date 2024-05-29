@@ -45,13 +45,13 @@
         <td>${{libro.precio|floatformat:2|intcomma}}</td>
         <td class="text-end">
           <div class="d-flex flex-wrap flex-sm-nowrap gap-2 justify-content-end">
-            {% comment %} <a
+            <a
               href="{% url 'editarLibro' libro.codigo_libro %}"
               class="btn btn-sm btn-primary"
             >
               <i class="bi bi-pencil"></i>
               <span class="ms-1 d-none d-md-inline">Editar</span>
-            </a> {% endcomment %}
+            </a>
             <button
               class="btn btn-sm btn-danger"
               data-bs-toggle="modal"

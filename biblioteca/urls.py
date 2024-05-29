@@ -16,7 +16,7 @@ autoresPatterns = [
 librosPatterns = [
     path('', LibrosController.listar, name="listarLibros"),
     path('/nuevo', LibrosController.agregar, name="agregarLibro"),
-    # path('/editar/<str:codigo_libro>', LibrosController.editar, name="editarLibro"),
+    path('/editar/<str:codigo_libro>', LibrosController.editar, name="editarLibro"),
     # path('/eliminar/<str:codigo_libro>', LibrosController.eliminar, name="eliminarLibro")
 ]
  

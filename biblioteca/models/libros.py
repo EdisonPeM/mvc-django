@@ -27,7 +27,10 @@ class LibrosModel():
       return []
   
   def obtenerLibro(codigo):
-    pass
+    try:
+      return Libro.objects.get(codigo_libro=codigo)
+    except Libro.DoesNotExist:
+      return None
   
   def insertarLibro(libro):
     try:
@@ -37,7 +40,11 @@ class LibrosModel():
       return False
   
   def modificarLibro(libro):
-    pass
+    try:
+      libro.save(force_update=True)
+      return True
+    except:
+      return False
   
   def eliminarLibro(codigo):
     pass 

@@ -17,10 +17,9 @@ labels = {
 }
 
 class CrearGenerosForm(BaseModelForm):
-  id_genero = forms.IntegerField(
+  id_genero = forms.CharField(
     label=labels["id_genero"],
-    min_value=100000,
-    max_value=999999,
+    max_length=6,
     required=True,
     validators=[id_genero_validator]
   )

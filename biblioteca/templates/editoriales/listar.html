@@ -1,0 +1,78 @@
+{% extends "layout/base.html" %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center flex-wrap">
+  <h1>Lista de Editoriales</h1>
+
+  <a href="{% url 'agregarEditorial' %}" class="btn btn-primary">Agregar Editorial</a>
+</div>
+
+<hr />
+
+<p>Total: {{ editoriales|length }} Editorial{{ editoriales|length|pluralize:"es" }}</p>
+
+{% if editoriales|length > 0 %}
+<div
+  class="table-responsive overflow-y-auto position-relative"
+  style="max-height: 60dvh"
+>
+  <table class="table table-striped table-hover align-middle">
+    <thead class="position-sticky top-0 shadow-sm align-middle">
+      <tr>
+        <th class="text-center">Codigo Editorial</th>
+        <th class="text-center">Nombre Editorial</th>
+        <th class="text-center">Contacto</th>
+        <th class="text-center">Telefono</th>
+        <th class="text-end" >
+          <span class="d-none d-md-inline">Operaciones</span>
+        </th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      {% for editorial in editoriales %}
+      <tr>
+        <td class="text-center">{{editorial.codigo_editorial}}</td>
+        <td class="text-center">{{editorial.nombre_editorial}}</td>
+        <td class="text-center">{{editorial.contacto}}</td>
+        <td class="text-center">{{editorial.telefono}}</td>
+        <td class="d-flex flex-wrap flex-sm-nowrap gap-2 justify-content-end">
+          <a
+              href="{% url 'editarEditorial' editorial.codigo_editorial %}"
+              class="btn btn-sm btn-primary"
+          >
+            <i class="bi bi-pencil"></i>
+            <span class="ms-1 d-none d-md-inline">Editar</span>
+          </a>
+          <button
+            class="btn btn-sm btn-danger"
+            data-bs-toggle="modal"
+            data-bs-target="#modal-eliminar-editorial"
+            data-codigo-editorial="{{editorial.codigo_editorial}}"
+            data-nombre-editorial="{{editorial.nombre_editorial}}"
+            data-contacto-editorial="{{editorial.contacto}}"
+            data-telefono-editorial="{{editorial.telefono}}"
+          >
+            <i class="bi bi-trash3"></i>
+            <span class="ms-1 d-none d-md-inline">Borrar</span>
+          </button>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% include 'editoriales/eliminarModal.html' %}
+
+{% else %}
+
+<div class="card">
+  <div class="card-body py-5 text-center">
+    <i class="bi bi-exclamation-circle"></i> 
+    <span>No hay editoriales para mostrar</span>
+  </div>
+</div>
+
+{% endif %}
+
+{% endblock %}

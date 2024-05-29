@@ -45,11 +45,12 @@ class EditorialesController:
     def eliminar(request, codigo_editorial):
         if request.method == 'POST':
             editorial = EditorialModel.obtenerEditorial(codigo_editorial)
+            print(editorial)
             if editorial:
                 if EditorialModel.eliminarEditorial(editorial):
                     request.session['alert'] = { 'type': 'success', 'message': 'Le editorial ha sido eliminado exitosamente' }
                 else:
                     request.session['alert'] = { 'type': 'error', 'message': 'Ha ocurrido un problema al eliminar la editorial' }
 
-            return redirect('listarAutores')
+        return redirect('listarEditoriales')
 

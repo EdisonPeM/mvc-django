@@ -5,6 +5,7 @@ from .controllers.index import IndexController
 from .controllers.generos import GenerosController
 from .controllers.autores import AutoresController
 from .controllers.libros import LibrosController
+from .controllers.editoriales import EditorialesController
 
 # Create Autores url patterns
 autoresPatterns = [
@@ -30,10 +31,19 @@ librosPatterns = [
     path('/eliminar/<str:codigo_libro>', LibrosController.eliminar, name="eliminarLibro")
 ]
 
+# Create Editoriales url patterns
+editorialesPatterns = [
+    path('', EditorialesController.listar, name="listarEditoriales"),
+    path('/nuevo', EditorialesController.agregar, name="agregarEditorial"),
+    path('/editar/<str:codigo_editorial>', EditorialesController.editar, name="editarEditorial"),
+    path('/eliminar/<str:codigo_editorial>', EditorialesController.eliminar, name="eliminarEditorial")
+]
+
 # Define Urls Patterns
 urlpatterns = [
     path('', IndexController.home, name="home"),
     path('autores', include(autoresPatterns)),
     path('generos', include(generosPatterns)),
     path('libros', include(librosPatterns)),
+    path('editoriales', include(editorialesPatterns))
 ]

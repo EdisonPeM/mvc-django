@@ -22,15 +22,18 @@
           <a class="nav-link {% if autoresUrl in request.path %}active{% endif %}" href="{{autoresUrl}}">Autores</a>
         </li>
         <li class="nav-item">
-          {% url 'listarEditoriales' as editorialesUrl %}
-          <a class="nav-link {% if editorialesUrl in request.path %}active{% endif %}" href="{{editorialesUrl}}">Editoriales</a>
           {% url 'listarGeneros' as generosUrl %}
           <a class="nav-link {% if generosUrl in request.path %}active{% endif %}" href="{{generosUrl}}">Generos</a>
+        </li>
+        <li class="nav-item">
+          {% url 'listarEditoriales' as editorialesUrl %}
+          <a class="nav-link {% if editorialesUrl in request.path %}active{% endif %}" href="{{editorialesUrl}}">Editoriales</a>
         </li>
         <li class="nav-item">
           {% url 'listarLibros' as librosUrl %}
           <a class="nav-link {% if librosUrl in request.path %}active{% endif %}" href="{{librosUrl}}">Libros</a>
         </li>
+
       </ul>
     </div>
   </div>

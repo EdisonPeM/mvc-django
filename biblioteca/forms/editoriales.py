@@ -11,6 +11,12 @@ codigo_editorial_validator = RegexValidator(
     code="invalid_editorial_code"
 )
 
+telefono_validator = RegexValidator(
+    regex=r'^601\d{6}$',
+    message="Ingrese un telefono en formato 601123456 no mayor a 9 digitos",
+    code="invalid_editorial_telefono"
+)
+
 labels = {
     'codigo_editorial': 'Código de la editorial',
     'nombre_editorial': 'Nombre de la editorial',
@@ -25,6 +31,12 @@ class CrearEditorialesForm(BaseModelForm):
         required=True,
         validators=[codigo_editorial_validator]
     )
+    telefono = forms.CharField(
+        label=labels["telefono"],
+        max_length=9,
+        required=True,
+        validators=[telefono_validator]
+    )
 
     class Meta():
         model = Editorial
@@ -32,6 +44,12 @@ class CrearEditorialesForm(BaseModelForm):
         labels = labels
 
 class EditarEditorialesForm(BaseModelForm):
+    telefono = forms.CharField(
+        label=labels["telefono"],
+        max_length=9,
+        required=True,
+        validators=[telefono_validator]
+    )
     class Meta():
         model = Editorial
         fields = ["nombre_editorial", "contacto", "telefono"]

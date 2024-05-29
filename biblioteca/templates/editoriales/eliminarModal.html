@@ -25,8 +25,6 @@
           <p class="m-3">
             <strong id="modal-eliminar-editorial-codigo"></strong>:
             <span id="modal-eliminar-editorial-nombre"></span>
-            (<span id="modal-eliminar-editorial-contacto"></span>)
-            (<span id="modal-eliminar-editorial-telefono"></span>)
           </p>
         </div>
         <div class="modal-footer">
@@ -57,9 +55,7 @@
   const form = document.getElementById("modal-eliminar-editorial-form");
   const codigoEditorialEl = document.getElementById("modal-eliminar-editorial-codigo");
   const nombreEditorialEl = document.getElementById("modal-eliminar-editorial-nombre");
-  const contactoEditorialEl = document.getElementById("modal-eliminar-editorial-contacto");
-  const telefonoEditorialEl = document.getElementById("modal-eliminar-editorial-telefono");
-
+  
   myModalEl.addEventListener("show.bs.modal", (event) => {
     // Show Selected Editorial Info
     const data = event.relatedTarget.dataset;
@@ -67,9 +63,6 @@
 
     codigoEditorialEl.textContent = codigoEditorial;
     nombreEditorialEl.textContent = nombreEditorial;
-    contactoEditorialEl.textContent = contactoEditorial;
-    telefonoEditorialEl.textContent = telefonoEditorial;
-
     // Set form action value
     const actionTemplate = "{% url 'eliminarEditorial' ':codigo' %}";
     form.action = actionTemplate.replace(":codigo", codigoEditorial);

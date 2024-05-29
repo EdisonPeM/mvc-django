@@ -1,4 +1,5 @@
 from django.db import models
+import traceback
 
 class Editorial(models.Model):
   class Meta:
@@ -7,6 +8,9 @@ class Editorial(models.Model):
   nombre_editorial = models.CharField(max_length=30)
   contacto = models.CharField(max_length=30)
   telefono = models.CharField(max_length=9)
+
+  def __str__(self) -> str:
+    return self.nombre_editorial
 
 
 class EditorialModel():
@@ -36,11 +40,12 @@ class EditorialModel():
     except:
       return False
   
-  def eliminarEditorial(codigo):
+  def eliminarEditorial(editorial):
     try:
-      return Editorial.delete(codigo)
+      editorial.delete()
+      return True
     except:
-      return []
-  
+      return False
+    
   def totalEditoriales():
     pass

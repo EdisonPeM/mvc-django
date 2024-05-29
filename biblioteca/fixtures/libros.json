@@ -1,0 +1,262 @@
+[
+  {
+    "model": "biblioteca.libro",
+    "fields": {
+      "codigo_libro": "LIB001",
+      "nombre_libro": "El señor de los anillos",
+      "descripcion": "Libro del señor de los anillos",
+      "autor": "AUT001",
+      "genero": "100260",
+      "editorial": "EDI010",
+      "existencias": "27",
+      "precio": "80000"
+    }
+  },
+  {
+    "model": "biblioteca.libro",
+    "fields": {
+      "codigo_libro": "LIB002",
+      "nombre_libro": "El Hobbit",
+      "descripcion": "Libro del hobbit",
+      "autor": "AUT001",
+      "genero": "100260",
+      "editorial": "EDI010",
+      "existencias": "20",
+      "precio": "85000"
+    }
+  },
+  {  
+    "model": "biblioteca.libro",
+    "fields": {
+      "codigo_libro": "LIB003",
+      "nombre_libro": "Harry Potter",
+      "descripcion": "Libro del Harry Potter",
+      "autor": "AUT002",
+      "genero": "100270",
+      "editorial": "EDI009",
+      "existencias": "10",
+      "precio": "87000"
+    }
+  },
+  {  
+    "model": "biblioteca.libro",
+    "fields": {
+      "codigo_libro": "LIB004",
+      "nombre_libro": "Animales Fantásticos y Dónde encontrarlos",
+      "descripcion": "Libro Animales Fantásticos y Dónde encontrarlos",
+      "autor": "AUT002",
+      "genero": "100270",
+      "editorial": "EDI009",
+      "existencias": "7",
+      "precio": "75000"
+    }
+  },
+  {  
+    "model": "biblioteca.libro",
+    "fields": {
+      "codigo_libro": "LIB005",
+      "nombre_libro": "Cien años de Soledad",
+      "descripcion": "Libro Cien años de Soledad",
+      "autor": "AUT003",
+      "genero": "100230",
+      "editorial": "EDI001",
+      "existencias": "15",
+      "precio": "50000"
+    }
+  },
+  {  
+    "model": "biblioteca.libro",
+    "fields": {
+      "codigo_libro": "LIB006",
+      "nombre_libro": "Crónica de una muerte anunciada",
+      "descripcion": "Libro Crónica de una muerte anunciada",
+      "autor": "AUT003",
+      "genero": "100230",
+      "editorial": "EDI008",
+      "existencias": "5",
+      "precio": "45000"
+    }
+  },
+  {  
+    "model": "biblioteca.libro",
+    "fields": {
+      "codigo_libro": "LIB007",
+      "nombre_libro": "Orgullo y Prejuicio",
+      "descripcion": "Libro Orgullo y Prejuicio",
+      "autor": "AUT004",
+      "genero": "100240",
+      "editorial": "EDI002",
+      "existencias": "15",
+      "precio": "65000"
+    }
+  },
+  {  
+    "model": "biblioteca.libro",
+    "fields": {
+      "codigo_libro": "LIB008",
+      "nombre_libro": "La Divina Comedia",
+      "descripcion": "Libro La Divina Comedia",
+      "autor": "AUT005",
+      "genero": "100250",
+      "editorial": "EDI007",
+      "existencias": "20",
+      "precio": "45000"
+    }
+  },
+  {  
+    "model": "biblioteca.libro",
+    "fields": {
+      "codigo_libro": "LIB009",
+      "nombre_libro": "El Alquimista",
+      "descripcion": "Libro El Alquimista",
+      "autor": "AUT006",
+      "genero": "100230",
+      "editorial": "EDI003",
+      "existencias": "20",
+      "precio": "47000"
+    }
+  },
+  {  
+    "model": "biblioteca.libro",
+    "fields": {
+      "codigo_libro": "LIB010",
+      "nombre_libro": "Poemas de Amor",
+      "descripcion": "Libro Poemas de Amor",
+      "autor": "AUT007",
+      "genero": "100290",
+      "editorial": "EDI006",
+      "existencias": "8",
+      "precio": "37000"
+    }
+  },
+  {  
+    "model": "biblioteca.libro",
+    "fields": {
+      "codigo_libro": "LIB011",
+      "nombre_libro": "Rayuela",
+      "descripcion": "Libro Rayuela",
+      "autor": "AUT008",
+      "genero": "100230",
+      "editorial": "EDI004",
+      "existencias": "15",
+      "precio": "67000"
+    }
+  },
+  {  
+    "model": "biblioteca.libro",
+    "fields": {
+      "codigo_libro": "LIB012",
+      "nombre_libro": "El Túnel",
+      "descripcion": "Libro El Túnel",
+      "autor": "AUT009",
+      "genero": "100230",
+      "editorial": "EDI005",
+      "existencias": "22",
+      "precio": "37000"
+    }
+  },
+  {  
+    "model": "biblioteca.libro",
+    "fields": {
+      "codigo_libro": "LIB013",
+      "nombre_libro": "La Resistencia",
+      "descripcion": "Libro La Resistencia",
+      "autor": "AUT009",
+      "genero": "100230",
+      "editorial": "EDI005",
+      "existencias": "14",
+      "precio": "35000"
+    }
+  },
+  {  
+    "model": "biblioteca.libro",
+    "fields": {
+      "codigo_libro": "LIB014",
+      "nombre_libro": "Canción de Navidad",
+      "descripcion": "Libro Canción de Navidad",
+      "autor": "AUT010",
+      "genero": "100230",
+      "editorial": "EDI004",
+      "existencias": "12",
+      "precio": "30000"
+    }
+  },
+  {  
+    "model": "biblioteca.libro",
+    "fields": {
+      "codigo_libro": "LIB015",
+      "nombre_libro": "El Retrato de Dorian Gray",
+      "descripcion": "Libro El Retrato de Dorian Gray",
+      "autor": "AUT011",
+      "genero": "100230",
+      "editorial": "EDI006",
+      "existencias": "24",
+      "precio": "27000"
+    }
+  },
+  {  
+    "model": "biblioteca.libro",
+    "fields": {
+      "codigo_libro": "LIB017",
+      "nombre_libro": "El Resplandor",
+      "descripcion": "Libro El Resplandor",
+      "autor": "AUT012",
+      "genero": "100280",
+      "editorial": "EDI003",
+      "existencias": "14",
+      "precio": "25000"
+    }
+  },
+  {  
+    "model": "biblioteca.libro",
+    "fields": {
+      "codigo_libro": "LIB018",
+      "nombre_libro": "Cien sonetos de amor",
+      "descripcion": "Libro Cien sonetos de amor",
+      "autor": "AUT013",
+      "genero": "100290",
+      "editorial": "EDI007",
+      "existencias": "10",
+      "precio": "22000"
+    }
+  },  
+  {  
+    "model": "biblioteca.libro",
+    "fields": {
+      "codigo_libro": "LIB019",
+      "nombre_libro": "El Cuervo",
+      "descripcion": "Libro El Cuervo",
+      "autor": "AUT014",
+      "genero": "100280",
+      "editorial": "EDI002",
+      "existencias": "30",
+      "precio": "20000"
+    }
+  },
+  {  
+    "model": "biblioteca.libro",
+    "fields": {
+      "codigo_libro": "LIB020",
+      "nombre_libro": "El Gato Negro",
+      "descripcion": "Libro El Gato Negro",
+      "autor": "AUT014",
+      "genero": "100280",
+      "editorial": "EDI008",
+      "existencias": "30",
+      "precio": "21000"
+    }
+  },
+  {  
+    "model": "biblioteca.libro",
+    "fields": {
+      "codigo_libro": "LIB020",
+      "nombre_libro": "Satanás",
+      "descripcion": "Libro Satanás",
+      "autor": "AUT014",
+      "genero": "100230",
+      "editorial": "EDI001",
+      "existencias": "17",
+      "precio": "32000"
+    }
+  }
+]

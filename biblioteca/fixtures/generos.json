@@ -1,0 +1,58 @@
+[
+  {
+    "model": "biblioteca.genero",
+    "fields": {
+      "id_genero": "100230",
+      "nombre_genero": "Novela",
+      "descripcion": "Género Novela"
+    }
+  },
+  {
+    "model": "biblioteca.genero",
+    "fields": {
+      "id_genero": "100240",
+      "nombre_genero": "Romántico",
+      "descripcion": "Género Romántico"
+    }
+  },
+  {
+    "model": "biblioteca.genero",
+    "fields": {
+      "id_genero": "100250",
+      "nombre_genero": "Ficción",
+      "descripcion": "Género Ficción"
+    }
+  },
+  {
+    "model": "biblioteca.genero",
+    "fields": {
+      "id_genero": "100260",
+      "nombre_genero": "Aventura",
+      "descripcion": "Género Aventura"
+    }
+  },
+  {
+    "model": "biblioteca.genero",
+    "fields": {
+      "id_genero": "100270",
+      "nombre_genero": "Fantasía",
+      "descripcion": "Género Fantasía"
+    }
+  },
+  {
+    "model": "biblioteca.genero",
+    "fields": {
+      "id_genero": "100280",
+      "nombre_genero": "Terror",
+      "descripcion": "Género Terror"
+    }
+  },
+  {
+    "model": "biblioteca.genero",
+    "fields": {
+      "id_genero": "100290",
+      "nombre_genero": "Poesía",
+      "descripcion": "Género Poesía"
+    }
+  }
+]

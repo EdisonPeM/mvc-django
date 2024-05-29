@@ -10,10 +10,26 @@
       {% if field.field.required %} *{% endif %}
     </label>
 
-    {{ field|add_class:"form-control"|add_error_class:"is-invalid" }}
-    
+    <div class="input-group ">
+      {% if field.field.prefix %}
+        <span class="input-group-text">{{field.field.prefix}}</span>
+      {% endif %} 
+      
+      {{ field|add_class:"form-control"|add_error_class:"is-invalid" }}
+      
+      {% if field.field.sufix %}
+        <span class="input-group-text">{{field.field.sufix}}</span>
+      {% endif %} 
+    </div>
+
+    {% if field.help_text %}
+      <div class="form-text">
+        {{field.help_text}}
+      </div>
+    {% endif %}
+
     {% if field.errors %}
-      <div class="invalid-feedback">
+      <div class="invalid-feedback d-block">
         {% for error in field.errors %}
         <p>{{ error }}</p>
         {% endfor%}

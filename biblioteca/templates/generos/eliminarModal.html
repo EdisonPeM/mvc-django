@@ -25,7 +25,8 @@
           <p class="m-3">
             <strong id="modal-eliminar-genero-codigo"></strong>:
             <span id="modal-eliminar-genero-nombre"></span>
-            
+          </p>
+          <p class="m-3" id="modal-eliminar-genero-libros">
           </p>
         </div>
         <div class="modal-footer">
@@ -56,14 +57,16 @@
   const form = document.getElementById("modal-eliminar-genero-form");
   const codigoGeneroEl = document.getElementById("modal-eliminar-genero-codigo");
   const nombreGeneroEl = document.getElementById("modal-eliminar-genero-nombre");
+  const librosGeneroEl = document.getElementById("modal-eliminar-genero-libros");
 
   myModalEl.addEventListener("show.bs.modal", (event) => {
-    // Show Selected Autor Info
+    // Show Selected Genero Info
     const data = event.relatedTarget.dataset;
-    const { idGenero, nombreGenero} = data;
+    const { idGenero, nombreGenero, librosGenero } = data;
 
     codigoGeneroEl.textContent = idGenero;
     nombreGeneroEl.textContent = nombreGenero;
+    librosGeneroEl.textContent = `También se eliminará${+librosGenero !== 1 ? 'n' : ''} ${librosGenero} Libro${+librosGenero !== 1 ? 's' : ''}`;
 
     // Set form action value
     const actionTemplate = "{% url 'eliminarGenero' ':codigo' %}";

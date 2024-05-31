@@ -26,6 +26,8 @@
             <strong id="modal-eliminar-editorial-codigo"></strong>:
             <span id="modal-eliminar-editorial-nombre"></span>
           </p>
+          <p class="m-3" id="modal-eliminar-editorial-libros">
+          </p>
         </div>
         <div class="modal-footer">
           <button
@@ -55,14 +57,17 @@
   const form = document.getElementById("modal-eliminar-editorial-form");
   const codigoEditorialEl = document.getElementById("modal-eliminar-editorial-codigo");
   const nombreEditorialEl = document.getElementById("modal-eliminar-editorial-nombre");
+  const librosEditorialEl = document.getElementById("modal-eliminar-editorial-libros");
   
   myModalEl.addEventListener("show.bs.modal", (event) => {
     // Show Selected Editorial Info
     const data = event.relatedTarget.dataset;
-    const { codigoEditorial, nombreEditorial } = data;
+    const { codigoEditorial, nombreEditorial, librosEditorial } = data;
 
     codigoEditorialEl.textContent = codigoEditorial;
     nombreEditorialEl.textContent = nombreEditorial;
+    librosEditorialEl.textContent = `También se eliminará${+librosEditorial !== 1 ? 'n' : ''} ${librosEditorial} Libro${+librosEditorial !== 1 ? 's' : ''}`;
+
     // Set form action value
     const actionTemplate = "{% url 'eliminarEditorial' ':codigo' %}";
     form.action = actionTemplate.replace(":codigo", codigoEditorial);

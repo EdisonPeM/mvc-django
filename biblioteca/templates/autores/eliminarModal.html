@@ -26,6 +26,8 @@
             <strong id="modal-eliminar-autor-codigo"></strong>:
             <span id="modal-eliminar-autor-info"></span>
           </p>
+          <p class="m-3" id="modal-eliminar-autor-libros">
+          </p>
         </div>
         <div class="modal-footer">
           <button
@@ -55,14 +57,16 @@
   const form = document.getElementById("modal-eliminar-autor-form");
   const codigoAutorEl = document.getElementById("modal-eliminar-autor-codigo");
   const infoAutorEl = document.getElementById("modal-eliminar-autor-info");
+  const librosAutorEl = document.getElementById("modal-eliminar-autor-libros");
 
   myModalEl.addEventListener("show.bs.modal", (event) => {
     // Show Selected Autor Info
     const data = event.relatedTarget.dataset;
-    const { codigoAutor, infoAutor } = data;
+    const { codigoAutor, infoAutor, librosAutor } = data;
 
     codigoAutorEl.textContent = codigoAutor;
     infoAutorEl.textContent = infoAutor;
+    librosAutorEl.textContent = `También se eliminará${+librosAutor !== 1 ? 'n' : ''} ${librosAutor} Libro${+librosAutor !== 1 ? 's' : ''}`;
 
     // Set form action value
     const actionTemplate = "{% url 'eliminarAutor' ':codigo' %}";

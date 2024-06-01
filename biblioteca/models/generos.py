@@ -14,7 +14,7 @@ class Genero(models.Model):
 class GenerosModel():
   def listarGeneros():
     try:
-      return Genero.objects.all()
+      return Genero.objects.all().prefetch_related('libros')
     except:
       print(traceback.format_exc())
       return []

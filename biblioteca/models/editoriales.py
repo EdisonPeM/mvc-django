@@ -16,7 +16,7 @@ class Editorial(models.Model):
 class EditorialModel():
   def listarEditoriales():
     try:
-      return Editorial.objects.all()
+      return Editorial.objects.all().prefetch_related('libros')
     except:
       return []
   

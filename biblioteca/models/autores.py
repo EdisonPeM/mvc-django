@@ -13,7 +13,7 @@ class Autor(models.Model):
 class AutoresModel():
   def listarAutores():
     try:
-      return Autor.objects.all()
+      return Autor.objects.all().prefetch_related('libros')
     except:
       return []
 

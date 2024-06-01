@@ -9,15 +9,10 @@
 
 <hr />
 
-<p>Total: {{ editoriales|length }} Editorial{{ editoriales|length|pluralize:"es" }}</p>
-
 {% if editoriales|length > 0 %}
-<div
-  class="table-responsive overflow-y-auto position-relative"
-  style="max-height: 60dvh"
->
-  <table class="table table-striped table-hover align-middle text-center">
-    <thead class="position-sticky top-0 shadow-sm align-middle">
+<div class="table-responsive overflow-y-auto position-relative">
+  <table id="table-editoriales" class="table table-striped table-hover align-middle text-center mb-0">
+    <thead class="shadow-sm align-middle">
       <tr>
         <th>Codigo Editorial</th>
         <th>Nombre Editorial</th>
@@ -76,4 +71,8 @@
 
 {% endif %}
 
+{% endblock %}
+
+{% block scripts %}
+<script>setupDataTable("#table-editoriales");</script>
 {% endblock %}

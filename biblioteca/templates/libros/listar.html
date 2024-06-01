@@ -11,15 +11,10 @@
 
 <hr />
 
-<p>Total: {{ libros|length }} Libro{{ libros|length|pluralize:"s" }}</p>
-
 {% if libros|length > 0 %}
-<div
-  class="table-responsive overflow-y-auto position-relative"
-  style="max-height: 60dvh"
->
-  <table class="table table-striped table-hover align-middle text-center">
-    <thead class="position-sticky top-0 shadow-sm align-middle">
+<div class="table-responsive overflow-y-auto position-relative">
+  <table id="table-libros" class="table table-striped table-hover align-middle text-center mb-0">
+    <thead class="shadow-sm align-middle">
       <tr>
         <th>Codigo</th>
         <th>Nombre</th>
@@ -28,7 +23,7 @@
         <th>Editorial</th>
         <th>Existencias</th>
         <th>Precio</th>
-        <th class="text-end" >
+        <th class="text-end" data-sortable="false">
           <span class="d-none d-md-inline">Operaciones</span>
         </th>
       </tr>
@@ -83,4 +78,8 @@
 
 {% endif %}
 
+{% endblock %}
+
+{% block scripts %}
+<script>setupDataTable("#table-libros");</script>
 {% endblock %}

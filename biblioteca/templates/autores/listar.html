@@ -9,20 +9,15 @@
 
 <hr />
 
-<p>Total: {{ autores|length }} Autor{{ autores|length|pluralize:"es" }}</p>
-
 {% if autores|length > 0 %}
-<div
-  class="table-responsive overflow-y-auto position-relative"
-  style="max-height: 60dvh"
->
-  <table class="table table-striped table-hover align-middle text-center">
-    <thead class="position-sticky top-0 shadow-sm align-middle">
+<div class="table-responsive overflow-y-auto position-relative">
+  <table id="table-autores" class="table table-striped table-hover align-middle text-center mb-0">
+    <thead class="shadow-sm align-middle">
       <tr>
         <th>Codigo Autor</th>
         <th>Nombre Autor</th>
         <th>Nacionalidad</th>
-        <th class="text-end" >
+        <th class="text-end" data-sortable="false">
           <span class="d-none d-md-inline">Operaciones</span>
         </th>
       </tr>
@@ -74,4 +69,8 @@
 
 {% endif %}
 
+{% endblock %}
+
+{% block scripts %}
+<script>setupDataTable("#table-autores");</script>
 {% endblock %}

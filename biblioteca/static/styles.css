@@ -1,0 +1,22 @@
+.custom-table-container {
+  height: auto !important;
+  max-height: 50dvh;
+}
+
+.custom-table-sorter {
+  color: inherit;
+  border: none;
+  background-color: inherit;
+  cursor: pointer;
+  text-align: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+td.custom-table-empty {
+  padding-block: 2rem;
+}
+
+.custom-table-headercontainer {
+  overflow-x: auto;
+}
